@@ -7,6 +7,7 @@ import argparse
 # Function to download the content of the URL
 def download(url):
     try:
+        # Open the URL and read its content
         response = urllib.request.urlopen(url)
         data = response.read()
         text = data.decode('utf-8')
@@ -25,16 +26,19 @@ def write_file(url, text, filename):
 
 # Main function
 def main():
+    # Create an argument parser to accept the URL as a command-line argument
     parser = argparse.ArgumentParser(description='Download content from a URL and save it to a text file.')
     parser.add_argument('url', type=str, help='URL to download content from (include http:// or https://)')
 
     args = parser.parse_args()
     url = args.url
 
+    # Check if the URL includes 'http://' or 'https://', and exit if not
     if not url.startswith('http://') and not url.startswith('https://'):
         print('Error: Invalid URL. Please include http:// or https://')
         sys.exit(1)
 
+    # Download content from the URL
     text = download(url)
 
     # Generate a unique filename based on the number of existing "fileX.txt" files in the directory
@@ -45,6 +49,7 @@ def main():
             break
         index += 1
 
+    # Write the downloaded content to the generated filename
     write_file(url, text, filename)
     print(f"Content downloaded and saved to {filename}")
 
