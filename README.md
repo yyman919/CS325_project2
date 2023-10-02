@@ -1,7 +1,7 @@
 # CS325_project2
 
 # Comment Extractor 
-The Comment Extractor is a Python script thay allows user to filter the comments out from the messy text file form Reddit and save the comments to another text file named comments.txt. This README provides step-by-step instrcution on how to run the program.
+The Comment Extractor is a Python script that allows users to filter the comments out of the messy text file on Reddit and save the comments to another text file named comments.txt. This README provides step-by-step instructions on how to run the program.
 
 ## Prerequisites
 Before you can run the Web Downloader program, you need to ensure you have the following prerequisites installed on your system:
