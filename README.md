@@ -20,11 +20,9 @@ Before you can run the Web Downloader program, you need to ensure you have the f
 
 2. **Navigate to the Project Directory**
 
-
 3. **Create a Virtual Environment**
-## Using Conda
-  conda create --name extract_comments_env python=3.11.4
-  conda activate extract_comments_env
+
+4. **Using Conda**
    
 ## Running the Program 
    1. step 1: use the command line: py web_downloader.py (url)
