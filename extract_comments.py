@@ -4,6 +4,7 @@ import os
 
 def extract_comments(input_file, output_dir):
     try:
+        # Read the contents of the input HTML file
         with open(input_file, 'r', encoding='utf-8') as infile:
             text = infile.read()
 
@@ -19,16 +20,17 @@ def extract_comments(input_file, output_dir):
         comments = []
 
         for paragraph in paragraphs:
-            # Extract the text within the <p> tags
+            # Extract the text within the <p> tags and remove leading/trailing whitespace
             comment_text = paragraph.get_text().strip()
 
-            # Only add non-empty comments
+            # Only add non-empty comments to the list
             if comment_text:
                 comments.append(comment_text)
 
         if not comments:
             print("No comments found in the input file.")
         else:
+            # Determine an available output file name (comments1.txt, comments2.txt, etc.)
             count = 1
             while True:
                 output_file = os.path.join(output_dir, f'comments{count}.txt')
@@ -36,6 +38,7 @@ def extract_comments(input_file, output_dir):
                     break
                 count += 1
 
+            # Write extracted comments to the output file
             with open(output_file, 'w', encoding='utf-8') as outfile:
                 for comment in comments:
                     outfile.write(comment + '\n\n')
@@ -57,6 +60,7 @@ def main():
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
+    # Call the extract_comments function with the input file and output directory
     extract_comments(input_file, output_dir)
 
 if __name__ == '__main__':
